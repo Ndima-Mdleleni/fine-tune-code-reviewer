@@ -66,9 +66,4 @@ trainer = Trainer(
 
 trainer.train()
 
-model.eval()
-test_code = "review this code: x=[1,23]\nfor i in range(0,len(x)):\n   x[i]=x[i]*2"
-prompt = f"<|user|>\n{test_code}</s>\n<|assistant|>\n"
-inputs = tokenizer(prompt, return_tensors="pt").to(device)
-outputs = model.generate(**inputs, max_new_tokens=200, do_sample=True, temperature=0.7)
-print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+
